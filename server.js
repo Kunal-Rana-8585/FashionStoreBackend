@@ -2,11 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const app = express();
-const PORT = process.env.PORT || 8080;
-const path=require('path');
+const port = 8080;
+
 var cors = require('cors');
 app.use(cors());
-app.use(express.static(path.join(__dirname + "/public")));
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -25,6 +24,7 @@ db.connect((err) => {
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+
 
 /************************************ */
 app.use(bodyParser.json());
@@ -202,6 +202,6 @@ app.post('/signup', async (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });

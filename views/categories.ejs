@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories Management</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+    }
+
+    header {
+        background-color: #db3838;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    nav {
+        background-color: #2c3e50;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 10px;
+    }
+
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #db3838;
+        color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: #db3838;
+        margin-right: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+  <header>
+    <h1>Categories Management System</h1>
+  </header>
+
+  <nav>
+    <a href="/">Back to Homepage</a>
+    <a href="/addCategories">Add Category</a>
+  </nav>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+    <% categories.forEach(category => { %>
+      <tr>
+        <td><%= category.category_id %></td>
+        <td><%= category.name %></td>
+        <td>
+          <a href="/categories/edit/<%= category.category_id %>">Edit</a>
+          <a href="/categories/delete/<%= category.category_id %>">Delete</a>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+
+</html>
