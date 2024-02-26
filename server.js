@@ -29,6 +29,9 @@ app.use(express.static(__dirname + '/public'));
 /************************************ */
 app.use(bodyParser.json());
 
+app.get('/',(req,res)=>{
+  res.send('<h1>hello server is running fine!</h1>');
+})
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
