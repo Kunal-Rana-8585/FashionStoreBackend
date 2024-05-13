@@ -2,16 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const app = express();
-const port = 8080;
+const port = 3306;
 
 var cors = require('cors');
 app.use(cors());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "2110990810",
-    database: "fashion_store"
+    host: "b7ox0hgbgt6e4yconyqw-mysql.services.clever-cloud.com",
+    user: "ujb4u3nygkhad5ki",
+    password: "cdhJzvBEcw4Lp4VSFit7",
+    database: "b7ox0hgbgt6e4yconyqw"
 });
 
 db.connect((err) => {
